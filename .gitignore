@@ -11,3 +11,5 @@ logs/
 # Ignore environmental variables
 .env
 
+# Ignore formatter
+.prettierrc
