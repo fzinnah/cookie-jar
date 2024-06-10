@@ -10,7 +10,7 @@ Cookie Jar is a Chrome extension that automatically rejects cookies from website
 ## Installation
 1. Clone the repository: 
 ```bash
-   git clone https://github.com/your-username/cookie-jar-guard.git
+   git clone https://github.com/fzinnah/cookie-jar.git
 ```
 2. Load the extension in Chrome
 3. Enable "developer mode" by toggling the switch in the top right corner.
