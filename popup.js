@@ -58,6 +58,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   // update the site list in the popup
+  function updateSiteList() {
+    siteList.innerHTML = "";
+    rejectSites.forEach((site) => {
+      const li = document.createElement("li");
+      li.textContent = site;
 
+      const removeButton = document.createElement("button");
+      removeButton.textContent = "Remove";
+      removeButton.className = "remove-site";
+      removeButton.addEventListener("click", function () {
+        rejectSites = rejectSites.filter((s) => s !== site);
+        chrome.runtime.sendMessage(
+          { action: "updateSites", sites: rejectSites },
+          function (resposne) {
+            if (response.success) {
+              updateSiteList();
+            }
+          }
+        );
+      });
+      li.appendChild(removeButton);
+      siteList.appendChild(li);
+    });
+  }
   //
 });
