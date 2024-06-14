@@ -3,7 +3,14 @@
   "name": "Cookie Jar",
   "version": "1.0",
   "description": "Automatically reject cookies when you enter a site.",
-  "permissions": ["webRequest", "webRequestBlocking", "cookies", "<all_urls>"],
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "cookies",
+    "<all_urls>",
+    "activeTab",
+    "scripting"
+  ],
   "background": {
     "service_worker": "background.js"
   },
@@ -12,5 +19,11 @@
   },
   "icons": {
     "48": "icon.png"
-  }
+  },
+  "content-scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
 }
